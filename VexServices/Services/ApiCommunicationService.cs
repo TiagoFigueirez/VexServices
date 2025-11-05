@@ -10,6 +10,8 @@ namespace VexServices.Services
         public ApiCommunicationService(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
+            
         }
 
         public async Task<T> GetAsync(string url, string token)

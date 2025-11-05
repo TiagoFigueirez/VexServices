@@ -29,12 +29,12 @@ namespace VexServices.Tasks
                     var scope = _serviceProvider.CreateScope();
                     var vexService = scope.ServiceProvider.GetService<IVexService>();
 
-                    if (_cronService.VerificyNextRun())
-                    {
+                    //if (_cronService.VerificyNextRun())
+                    //{
                         var dataVex = await vexService.GetReportsVex();
-                    }
+                    //}
 
-                    await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
+                    //await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
                 }
                 catch(Exception ex)
                 {

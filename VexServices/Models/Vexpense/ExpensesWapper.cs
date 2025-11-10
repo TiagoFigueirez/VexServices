@@ -5,6 +5,6 @@ namespace VexServices.Models.Vexpense
     public class ExpensesWapper
     {
         [JsonPropertyName("data")]
-        List<Expense>? Data { get; set; }
+        public List<Expense>? Data { get; set; }
     }
 }

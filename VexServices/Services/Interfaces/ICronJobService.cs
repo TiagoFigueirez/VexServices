@@ -1,6 +1,4 @@
-﻿using VexServices.Models.Vexpense;
-
-namespace VexServices.Services.Interfaces
+﻿namespace VexServices.Services.Interfaces
 {
     public interface ICronJobService
     {

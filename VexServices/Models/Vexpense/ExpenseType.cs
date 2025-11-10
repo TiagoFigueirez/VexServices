@@ -7,7 +7,7 @@ namespace VexServices.Models.Vexpense
         [JsonPropertyName("id")]
         public int Id { get; set; }
         [JsonPropertyName("integration_id")]
-        public int IntegrationId { get; set; }
+        public int? IntegrationId { get; set; }
         [JsonPropertyName("description")]
         public string? Description { get; set; }
         [JsonPropertyName("on")]

@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using VexServices.Converters;
 using VexServices.Services.Interfaces;
 
 namespace VexServices.Services
@@ -6,15 +7,21 @@ namespace VexServices.Services
     public class ApiCommunicationService<T> : IApiCommunicationService<T> where T : class
     {
         private readonly HttpClient _httpClient;
+        private readonly JsonSerializerOptions _jsonOptions;
 
         public ApiCommunicationService(HttpClient httpClient)
         {
             _httpClient = httpClient;
 
-            
+            _jsonOptions = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+            };
+
+            _jsonOptions.Converters.Add(new DateTimeJsonConverter());
         }
 
-        public async Task<T> GetAsync(string url, string token)
+        public async Task<T?> GetAsync(string url, string token)
         {
             try
             {
@@ -29,10 +36,7 @@ namespace VexServices.Services
 
                 var json = await response.Content.ReadAsStringAsync();
 
-                return JsonSerializer.Deserialize<T>(json, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true,
-                });
+                return JsonSerializer.Deserialize<T>(json, _jsonOptions);
             }
             catch (Exception ex)
             {

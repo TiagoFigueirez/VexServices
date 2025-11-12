@@ -12,8 +12,4 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.10" />
     <PackageReference Include="NCrontab" Version="3.4.0" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
 </Project>

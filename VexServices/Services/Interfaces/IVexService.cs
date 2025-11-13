@@ -4,6 +4,6 @@ namespace VexServices.Services.Interfaces
 {
     public interface IVexService
     {
-        public Task<Root> GetReportsVex();
+        public Task<bool> GetReportsVex();
     }
 }

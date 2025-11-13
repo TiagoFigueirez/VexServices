@@ -8,8 +8,6 @@ namespace VexServices.Repository
         public bool InsertDB(List<TituloDto> titles)
         {
             throw new NotImplementedException();
-
-
         }
     }
 }

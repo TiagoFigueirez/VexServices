@@ -17,11 +17,11 @@
                     .Build();
 
                 connectionString = _configuration.GetConnectionString("DefaultConnection");
-                providerName = _configuration.GetConnectionString("DefaultConnection");
+                providerName = _configuration.GetConnectionString("ProviderName");
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception("Falha ao se conectar ao banco de dados: " + ex.Message);
             }
         }
 

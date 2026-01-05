@@ -9,14 +9,11 @@ namespace VexServices.Services
     {
         private readonly IApiCommunicationService<Root>? _apiCommunicationService;
         private readonly IConfiguration _configuration;
-        private readonly IVexRepository _vexRepository;
 
-        public VexService(IApiCommunicationService<Root>? apiCommunicationService, IConfiguration configuration, 
-                          IVexRepository vexRepository)
+        public VexService(IApiCommunicationService<Root>? apiCommunicationService, IConfiguration configuration)
         {
             _apiCommunicationService = apiCommunicationService;
             _configuration = configuration;
-            _vexRepository = vexRepository;
         }
 
         public async Task<bool> GetReportsVex()
@@ -53,10 +50,10 @@ namespace VexServices.Services
                     };
 
                     ListTitulo.Add(expenseDto);
+
                 }
             }
-            
-            return _vexRepository.InsertDB(ListTitulo);
+            return true;
         }
     }
 }
